@@ -19,11 +19,11 @@ was_pressed = False
 SCOPES = ['https://www.googleapis.com/auth/drive']
 creds = None
 
-#토큰이 있으면
+#토큰 존재 시
 if os.path.exists('token.json'):
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
-#토큰이 없거나 기한이 만료되면
+#토큰 부재 or 기한 만료 시
 if not creds or not creds.valid:
     if creds and creds.expired and creds.refresh_token:
         creds.refresh(Request())
@@ -39,7 +39,7 @@ if not creds or not creds.valid:
 service = build('drive', 'v3', credentials=creds)
 
 while True:
-    if keyboard.is_pressed('s'):        #절대절대 s 버튼을 막 누르시면 안됩니다 다른 창이 띄워져있어도 s를 인식하더라구
+    if keyboard.is_pressed('s'):        # s 버튼을 막 누르면 안 됨! 다른 창이 띄워져있어도 s 버튼 인식함
         if not was_pressed:
             was_pressed = True
 
