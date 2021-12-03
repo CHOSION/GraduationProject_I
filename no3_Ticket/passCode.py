@@ -45,16 +45,16 @@ while True:
 
             #음악 업로드 실행
             print("=====  {}번째 음성이 업로드됩니다  =====".format(count))
-            file_metadata = {'name': '2021-05-22_' + str(count) + '_voice.wav', # 매일매일 이름의 날짜와 폴더ID 바꿔야합니다
+            file_metadata = {'name': '2021-05-22_' + str(count) + '_voice.wav', # 매일매일 이름의 날짜와 폴더ID 바꿔야 한다.
                              'parents': ['1QTAwj4llfne_nYAUlISG_LwC1tZ8jfLW']}  # 5월 21일 폴더ID : 1zvjIvmhnMri7KstpOEAiuBeZBS1o8WBK
                                                                                 # 5월 22일 폴더ID : 1QTAwj4llfne_nYAUlISG_LwC1tZ8jfLW
                                                                                 # 5월 23일 폴더ID : 10-yvjsEQ8G28jfvs_6xqjJvZSZj30xwX
             media = MediaFileUpload('voice/' + str(count) + '_voice.wav', resumable=True)  # 파일 위치
             file = service.files().create(body=file_metadata,
                                           media_body=media,
-                                          fields='id').execute()    #파일올리는 거예요
+                                          fields='id').execute()    # 파일 올리기
 
-            #QR코드 만들기
+            # QR코드 만들기
             print("=====  {}번째 QR코드 생성중  =====".format(count))
             qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L,
                                box_size=20, border=0)
@@ -63,7 +63,7 @@ while True:
             img.save("QRCode/" + str(count) + "_qrcode.png")
 
 
-            #배경화면에 옷 이미지 넣기
+            # 배경화면에 옷 이미지 넣기
             background = Image.open('background.jpg')
             blur = Image.open('blur/' + str(count) + '_blur.png')
             background_size = background.size
@@ -72,7 +72,7 @@ while True:
             ticket.paste(background, (0, 0))
             ticket.paste(blur, (32, 32))
 
-            #몇 번째 손님인지
+            # n번째 손님
             draw = ImageDraw.Draw(ticket)
             font = ImageFont.truetype("../font/함초롱바탕R.ttf", 24)
             org = (693, 295)  # 글씨의 위치
