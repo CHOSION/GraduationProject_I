@@ -54,7 +54,7 @@ while True:
                                           media_body=media,
                                           fields='id').execute()    # 파일 올리기
 
-            # QR코드 만들기
+            # QR코드 생성
             print("=====  {}번째 QR코드 생성중  =====".format(count))
             qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L,
                                box_size=20, border=0)
@@ -78,12 +78,12 @@ while True:
             org = (693, 295)  # 글씨의 위치
             draw.text(org, str(count) +"번째 손님", font=font, fill=(0, 0, 0), align = 'center')
 
-            #음파 넣기
+            #음파
             wave = Image.open('waveform/' + str(count) + '_waveform.png', 'r')
             wave = wave.resize((800, 300))
             ticket.paste(wave, (520, 290), wave)
 
-            #QR코드 넣기
+            #QR코드
             QR = Image.open('QRCode/' + str(count) + '_qrcode.png')
             QR = QR.resize((100, 100))
             ticket.paste(QR, (888, 508))
