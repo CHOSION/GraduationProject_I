@@ -15,15 +15,15 @@ count = 1
 was_pressed = False
 
 
-#권한 인증 및 토큰 확인
+# 권한 인증 및 토큰 확인
 SCOPES = ['https://www.googleapis.com/auth/drive']
 creds = None
 
-#토큰 존재 시
+# 토큰 존재 시
 if os.path.exists('token.json'):
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
-#토큰 부재 or 기한 만료 시
+# 토큰 부재 or 기한 만료 시
 if not creds or not creds.valid:
     if creds and creds.expired and creds.refresh_token:
         creds.refresh(Request())
@@ -35,7 +35,7 @@ if not creds or not creds.valid:
     with open('token.json', 'w') as token:
         token.write(creds.to_json())
 
-#파이프를 통해 연결. 연결 인스턴스 생성
+# 파이프를 통해 연결. 연결 인스턴스 생성
 service = build('drive', 'v3', credentials=creds)
 
 while True:
@@ -43,7 +43,7 @@ while True:
         if not was_pressed:
             was_pressed = True
 
-            #음악 업로드 실행
+            # 음악 업로드 실행
             print("=====  {}번째 음성이 업로드됩니다  =====".format(count))
             file_metadata = {'name': '2021-05-22_' + str(count) + '_voice.wav', # 매일매일 이름의 날짜와 폴더ID 바꿔야 한다.
                              'parents': ['1QTAwj4llfne_nYAUlISG_LwC1tZ8jfLW']}  # 5월 21일 폴더ID : 1zvjIvmhnMri7KstpOEAiuBeZBS1o8WBK
@@ -78,17 +78,17 @@ while True:
             org = (693, 295)  # 글씨의 위치
             draw.text(org, str(count) +"번째 손님", font=font, fill=(0, 0, 0), align = 'center')
 
-            #음파
+            # 음파
             wave = Image.open('waveform/' + str(count) + '_waveform.png', 'r')
             wave = wave.resize((800, 300))
             ticket.paste(wave, (520, 290), wave)
 
-            #QR코드
+            # QR코드
             QR = Image.open('QRCode/' + str(count) + '_qrcode.png')
             QR = QR.resize((100, 100))
             ticket.paste(QR, (888, 508))
 
-            #티켓 저장
+            # 티켓 저장
             print("=====  {}번째 티켓이 저장되고 있습니다  =====".format(count))
             ticket.save('Ticket/' + str(count) + "_ticket.png")
             ticket.show()
