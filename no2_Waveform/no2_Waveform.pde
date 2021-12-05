@@ -12,7 +12,7 @@ float time;
 int count = 1;
 boolean running = false;
 
-//버튼 관련 변수들
+// 버튼 관련 변수들
 int circleX, circleY;
 int circleSize = 100;
 color circleColor, circleHighlight;
@@ -22,7 +22,7 @@ int buttonX, buttonY;
 int buttonSize = 50;
 boolean buttonOver = false;
 
-//질문거리
+// 질문거리
 String sen1="살면서 가장 재미있었던 나이와 그 이유는?";
 String sen2="코로나가 끝나면 제일 먼저 하고 싶은 것은?";
 String sen3="현재 가장 고민인 것은?";
@@ -64,7 +64,7 @@ void setup(){
   textX = width/2;
   textY = 300;
   
-  reset_sketch();     //setup은 프로세싱 실행할 때 딱 한 번만 돌아가므로 녹음 버튼 누를때마다 reset_sketch로 setup의 기능을 수행함
+  reset_sketch();     // setup은 프로세싱 실행할 때 딱 한 번만 돌아가므로 녹음 버튼 누를때마다 reset_sketch로 setup의 기능을 수행함
 }
 
 
@@ -72,7 +72,7 @@ void reset_sketch(){
   frameRate(30);
 
   recorder = minim.createRecorder(in, "../no3_Ticket/voice/" + str(count) + "_voice.wav");
-  alphaG = createGraphics(1080, 300, JAVA2D);           //음파 저장할 파일의 가로세로 사이즈
+  alphaG = createGraphics(1080, 300, JAVA2D);           // 음파 저장할 파일의 가로세로 사이즈
 
   time = 6.0;
   j = 0;
@@ -103,7 +103,7 @@ void draw(){
     image(button, buttonX, buttonY, buttonSize, buttonSize);
   }
   
-  //질문
+  // 질문
   textFont(font,80);
   textAlign(CENTER);
   noStroke();
@@ -150,7 +150,7 @@ void draw(){
   //alphaG.beginDraw();
   //alphaG.background(255);
   //alphaG.endDraw();
-  //image(alphaG, width/2-450 ,500);         //위치 확인용 코드일 뿐, 진짜 실행할 땐 주석처리하면 됩니당
+  //image(alphaG, width/2-450 ,500);         // 위치 확인용 코드일 뿐, 진짜 실행할 땐 주석처리하면 됩니당
    
    
   //Waveform
