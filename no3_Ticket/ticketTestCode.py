@@ -12,25 +12,25 @@ ticket.paste(blur, (15, 462))
 ticket.paste(background, (0, 0), background)
 
 
-#몇 번째 손님인지
+# n번째 손님
 draw = ImageDraw.Draw(ticket)
 font = ImageFont.truetype("../font/조선일보명조.ttf", 30)
 org = (300, 167)  # 글씨의 위치
 draw.text(org, "#%03d" %count, font=font, fill=(100, 100, 100))
 
-#음파 넣기
+# soundwave
 wave = Image.open('waveform/' + str(count) + '_waveform.png', 'r')
 wave = wave.resize((510, 150))
 ticket.paste(wave, (65, 310), wave)
 
-#QR코드 넣기
+# QR code
 QR = Image.open('QRCode/' + str(count) + '_qrcode.png')
 QR = QR.resize((120, 120))
 ticket.paste(QR, (455, 75))
 
-#티켓 저장
+# save ticket
 print("=====  {}번째 티켓이 저장되고 있습니다  =====".format(count))
 ticket.save('Ticket/' + str(count) + "_ticket.png")
 ticket.show()
 
-#count += 1
+# count += 1
