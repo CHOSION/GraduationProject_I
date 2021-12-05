@@ -39,7 +39,6 @@ def blur():
     blurI.save("../no3_Ticket/blur/" + str(count) + '_blur.png')    # 블러된 사진 저장
 
 
-#########################################################################
 # CAMERA SETTING
 capture = cv2.VideoCapture(2)
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 2160)
@@ -50,7 +49,6 @@ cv2.namedWindow('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
 # 카운트 변수[중요]
-
 count = 122
 
 while True:
