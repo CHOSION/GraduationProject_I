@@ -30,7 +30,7 @@ def plot_colors(hist, centroids):
     # return the bar chart
     return bar
  
-# 블러처리 함수
+# Blur
 def blur():
     image1 = Image.open("../no3_Ticket/colorBar/" + str(count) + '_colorBar.png')     # 바 사진 불러옴
 
