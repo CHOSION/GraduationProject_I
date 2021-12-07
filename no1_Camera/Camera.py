@@ -53,7 +53,7 @@ count = 122
 
 while True:
     ret, frame = capture.read()
-    key = cv2.waitKey(25)
+    key = cv2.waitKey(30)
     frame = cv2.flip(frame, 1)
     frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
@@ -98,7 +98,7 @@ while True:
     cv2.imshow('WINDOW_NAME', frame)
 
     if key == ord('a'):
-        cv2.waitKey(25)
+        cv2.waitKey(30)
 
         img = frame
         dst = img[960 - 280 + 3: 960 + 280 - 3, 720 - 220 -150+ 3: 720 + 220-150 - 3].copy()

@@ -29,7 +29,7 @@ QR = QR.resize((120, 120))
 ticket.paste(QR, (455, 75))
 
 # save ticket
-print("=====  {}번째 티켓이 저장되고 있습니다  =====".format(count))
+print("=====  No.{} 티켓이 저장되고 있습니다  =====".format(count))
 ticket.save('Ticket/' + str(count) + "_ticket.png")
 ticket.show()
 
