@@ -44,7 +44,7 @@ while True:
             was_pressed = True
 
             # 음악 업로드 실행
-            print("=====  {}번째 음성이 업로드됩니다  =====".format(count))
+            print("=====  No.{} 음성이 업로드됩니다  =====".format(count))
             file_metadata = {'name': '2021-05-22_' + str(count) + '_voice.wav', # 매일매일 이름의 날짜와 폴더ID 바꿔야 한다.
                              'parents': ['1QTAwj4llfne_nYAUlISG_LwC1tZ8jfLW']}  # 5월 21일 폴더ID : 1zvjIvmhnMri7KstpOEAiuBeZBS1o8WBK
                                                                                 # 5월 22일 폴더ID : 1QTAwj4llfne_nYAUlISG_LwC1tZ8jfLW
