@@ -48,8 +48,8 @@ capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 4096)
 cv2.namedWindow('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
-# 카운트 변수[중요]
-count = 122
+# 카운트 변수[중요]_122
+count = 125
 
 while True:
     ret, frame = capture.read()
