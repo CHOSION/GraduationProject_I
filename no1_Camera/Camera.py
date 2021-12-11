@@ -98,7 +98,8 @@ while True:
     cv2.imshow('WINDOW_NAME', frame)
 
     if key == ord('a'):
-        cv2.waitKey(30)
+        # 30
+        cv2.waitKey(20)
 
         img = frame
         dst = img[960 - 280 + 3: 960 + 280 - 3, 720 - 220 -150+ 3: 720 + 220-150 - 3].copy()
