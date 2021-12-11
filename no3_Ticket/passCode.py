@@ -10,8 +10,8 @@ import qrcode
 import keyboard
 from PIL import Image, ImageDraw, ImageFont
 
-
-count = 1
+# 1
+count = 12
 was_pressed = False
 
 
