@@ -11,3 +11,6 @@ capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 4096)
 # 이 부분을 주석처리하면 윈도우처럼 뜬다.
 cv2.namedWindow('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
+# 카운트 변수(중요함)
+count = 122
