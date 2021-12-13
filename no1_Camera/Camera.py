@@ -3,42 +3,6 @@ import cv2
 from sklearn.cluster import KMeans
 from PIL import ImageFont, ImageDraw, Image, ImageFilter
 
-# 색상비율 리턴
-def centroid_histogram(clt):
-    numLabels = np.arange(0, len(np.unique(clt.labels_)) + 1)
-    (hist, _) = np.histogram(clt.labels_, bins=numLabels)
-
-    hist = hist.astype("float")
-    hist /= hist.sum()
-    return hist
-
-# 색상바 생성
-def plot_colors(hist, centroids):
-    b_width = 610
-    b_height = 528
-    bar = np.zeros((b_height, b_width, 3), dtype="uint8")
-    startY = 0
-
-    # loop over the percentage of each cluster and the color of
-    # each cluster
-    for (percent, color) in zip(hist, centroids):
-        # plot the relative percentage of each cluster
-        endY = startY + (percent * b_height)
-        cv2.rectangle(bar, (0, int(startY)), (b_width, int(endY)),
-                      color.astype("uint8").tolist(), -1)
-        startY = endY
-    # return the bar chart
-    return bar
- 
-# Blur
-def blur():
-    image1 = Image.open("../no3_Ticket/colorBar/" + str(count) + '_colorBar.png')     # 바 사진 불러옴
-
-    # BoxBlur 사용
-    blurI = image1.filter(ImageFilter.GaussianBlur(40))
-    blurI.save("../no3_Ticket/blur/" + str(count) + '_blur.png')    # 블러된 사진 저장
-
-
 # CAMERA SETTING
 capture = cv2.VideoCapture(2)
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 2160)
@@ -48,8 +12,8 @@ capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 4096)
 cv2.namedWindow('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
-# 카운트 변수[중요]_122
-count = 125
+# 카운트 변수
+count = 122
 
 while True:
     ret, frame = capture.read()
