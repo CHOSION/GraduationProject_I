@@ -14,3 +14,9 @@ cv2.setWindowProperty('WINDOW_NAME', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCR
 
 # 카운트 변수(중요함)
 count = 122
+
+while True:
+    ret, frame = capture.read()
+    key = cv2.waitKey(30)
+    frame = cv2.flip(frame, 1)
+    frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
