@@ -30,3 +30,8 @@ while True:
     draw = ImageDraw.Draw(img)
     font_s = ImageFont.truetype("../font/Daum_Regular.ttf", 50)
     font_b = ImageFont.truetype("../font/Daum_Regular.ttf", 72)
+
+    # 글씨의 위치 (1)
+    org = (720-275-150, 960-280-400)
+    text = "초록색 네모 안에 상의가"
+    draw.text(org, text, font=font_s, fill=(255, 255, 255))
