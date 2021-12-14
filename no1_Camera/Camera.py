@@ -20,3 +20,7 @@ while True:
     key = cv2.waitKey(30)
     frame = cv2.flip(frame, 1)
     frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+
+    # 텍스트
+    img = frame
+    img = Image.fromarray(img)
