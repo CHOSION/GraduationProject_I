@@ -3,6 +3,15 @@ import cv2
 from sklearn.cluster import KMeans
 from PIL import ImageFont, ImageDraw, Image, ImageFilter
 
+# 색상의 비율을 보여주는 함수
+def centroid_histogram(clt):
+    numLabels = np.arange(0, len(np.unique(clt.labels_)) + 1)
+    (hist, _) = np.histogram(clt.labels_, bins=numLabels)
+
+    hist = hist.astype("float")
+    hist /= hist.sum()
+    return hist
+
 # 카메라 세팅
 capture = cv2.VideoCapture(2)
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 2160)
