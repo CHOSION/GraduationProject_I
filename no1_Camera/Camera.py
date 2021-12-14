@@ -55,3 +55,32 @@ while True:
 
 
     cv2.imshow('WINDOW_NAME', frame)
+
+    if key == ord('a'):
+        cv2.waitKey(30)
+
+        img = frame
+        dst = img[960 - 280 + 3: 960 + 280 - 3, 720 - 220 -150+ 3: 720 + 220-150 - 3].copy()
+        cv2.imwrite("../no3_Ticket/image/" + str(count) + ".png", dst)           #잘린 사진 저장할 곳
+
+        image = dst.reshape((dst.shape[0] * dst.shape[1], 3))
+        k = 3
+        iterations = 4
+        iteration = 300
+
+        clt = KMeans(n_clusters=k, n_jobs=iterations, max_iter=iteration)
+        clt.fit(image)
+
+        hist = centroid_histogram(clt)
+        bar = plot_colors(hist, clt.cluster_centers_)
+
+        cv2.imwrite("../no3_Ticket/colorBar/" + str(count) + "_colorBar.png", bar)        #바 사진 저장할 곳
+        blur()
+
+        count += 1
+
+    elif key == ord('q') or key == 27:  # 'q' 이거나 'esc' 이면 종료
+        break
+
+capture.release()
+cv2.destroyAllWindows()
