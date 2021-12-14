@@ -24,3 +24,9 @@ while True:
     # 텍스트
     img = frame
     img = Image.fromarray(img)
+
+    # width / 2 = 1080
+    # height / 2 = 2048
+    draw = ImageDraw.Draw(img)
+    font_s = ImageFont.truetype("../font/Daum_Regular.ttf", 50)
+    font_b = ImageFont.truetype("../font/Daum_Regular.ttf", 72)
