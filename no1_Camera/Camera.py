@@ -3,7 +3,7 @@ import cv2
 from sklearn.cluster import KMeans
 from PIL import ImageFont, ImageDraw, Image, ImageFilter
 
-# 색상의 비율을 보여주는 함수
+# 색상 비율을 보여주는 함수
 def centroid_histogram(clt):
     numLabels = np.arange(0, len(np.unique(clt.labels_)) + 1)
     (hist, _) = np.histogram(clt.labels_, bins=numLabels)
@@ -57,11 +57,13 @@ while True:
     cv2.imshow('WINDOW_NAME', frame)
 
     if key == ord('a'):
+        # 'a' 클릭 후 3초 후 촬영됨
         cv2.waitKey(30)
 
         img = frame
         dst = img[960 - 280 + 3: 960 + 280 - 3, 720 - 220 -150+ 3: 720 + 220-150 - 3].copy()
-        cv2.imwrite("../no3_Ticket/image/" + str(count) + ".png", dst)           #잘린 사진 저장할 곳
+        # 잘린 사진 저장할 곳 (/no3_Ticket/image)
+        cv2.imwrite("../no3_Ticket/image/" + str(count) + ".png", dst)
 
         image = dst.reshape((dst.shape[0] * dst.shape[1], 3))
         k = 3
