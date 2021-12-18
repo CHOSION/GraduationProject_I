@@ -31,3 +31,6 @@ if not creds or not creds.valid:
         # Save the credentials for the next run
     with open('token.json', 'w') as token:
         token.write(creds.to_json())
+
+#파이프를 통해 연결, 연결 인스턴스 생성
+service = build('drive', 'v3', credentials=creds)
