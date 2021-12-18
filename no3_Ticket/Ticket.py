@@ -16,11 +16,11 @@ count = 142
 SCOPES = ['https://www.googleapis.com/auth/drive']
 creds = None
 
-#토큰이 있으면
+#토큰 존재 시
 if os.path.exists('token.json'):
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
-#토큰이 없거나 기한이 만료되면
+#토큰 부재 or 기한 만료 시
 if not creds or not creds.valid:
     if creds and creds.expired and creds.refresh_token:
         creds.refresh(Request())
