@@ -12,7 +12,7 @@ def centroid_histogram(clt):
     hist /= hist.sum()
     return hist
 
-#색상바를 만드는 함수
+#색상바 생성하는 함수
 def plot_colors(hist, centroids):
     b_width = 610
     b_height = 528
@@ -29,6 +29,14 @@ def plot_colors(hist, centroids):
         startY = endY
     # return the bar chart
     return bar
+
+#블러처리 함수
+def blur():
+    image1 = Image.open("../no3_Ticket/colorBar/" + str(count) + '_colorBar.png')     #바 사진 불러옴
+
+    # BoxBlur 사용
+    blurI = image1.filter(ImageFilter.GaussianBlur(40))
+    blurI.save("../no3_Ticket/blur/" + str(count) + '_blur.png')    #블러된 사진 저장
 
 # 카메라 세팅
 capture = cv2.VideoCapture(2)
