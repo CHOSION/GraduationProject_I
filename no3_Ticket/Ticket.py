@@ -40,8 +40,8 @@ while True:
     if s == 'a':
         #음악 업로드 실행
         print("=====  {}번째 음성이 업로드됩니다  =====".format(count))
-        file_metadata = {'name': '2021-05-23_' + str(count) + '_voice.wav', # 매일매일 이름의 날짜와 폴더ID 바꿔야합니다
-                        'parents': ['10-yvjsEQ8G28jfvs_6xqjJvZSZj30xwX']}  # 5월 21일 폴더ID : 1zvjIvmhnMri7KstpOEAiuBeZBS1o8WBK
+        file_metadata = {'name': '2021-05-23_' + str(count) + '_voice.wav',     # 매일 이름의 날짜와 폴더ID 변경 필수
+                        'parents': ['10-yvjsEQ8G28jfvs_6xqjJvZSZj30xwX']}       # 5월 21일 폴더ID : 1zvjIvmhnMri7KstpOEAiuBeZBS1o8WBK
                                                                                 # 5월 22일 폴더ID : 1QTAwj4llfne_nYAUlISG_LwC1tZ8jfLW
                                                                                 # 5월 23일 폴더ID : 10-yvjsEQ8G28jfvs_6xqjJvZSZj30xwX
                                                                                 # 테스트 폴더 : 1BVg4nm0n2HjvckWxXEoOulgENtjMYpcE
