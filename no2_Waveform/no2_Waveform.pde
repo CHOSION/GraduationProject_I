@@ -82,7 +82,7 @@ void reset_sketch(){
 
 void draw(){
   update(mouseX, mouseY);
-  background(255, 255, 255);          //배경 너무 구려욧!! 바꿔야해욧!!
+  background(255, 255, 255);          
   
   //버튼 관련
   if (circleOver) {           //원 위에 마우스 커서가 있는지?
@@ -96,7 +96,7 @@ void draw(){
   strokeWeight(12);
   ellipse(circleX, circleY, circleSize, circleSize);
     
-  if(buttonOver){               //새로고침 버버튼 위에 마우스 커서가 있는지?
+  if(buttonOver){               //새로고침 버튼 위에 마우스 커서가 있는지?
     image(button, buttonX-10, buttonY-10, buttonSize+20, buttonSize+20);
   }
   else {
@@ -150,7 +150,7 @@ void draw(){
   //alphaG.beginDraw();
   //alphaG.background(255);
   //alphaG.endDraw();
-  //image(alphaG, width/2-450 ,500);         //위치 확인용 코드일 뿐, 진짜 실행할 땐 주석처리하면 됩니당
+  //image(alphaG, width/2-450 ,500);         //위치 확인용 코드, 실행시 주석처리 필요
    
    
   //Waveform
@@ -167,7 +167,7 @@ void draw(){
     recorder.beginRecord();
 
     alphaG.beginDraw();   
-    //alphaG.background(255);         //이것도 음파확인용 코드임. 어디에 그려질지 봐야지
+    //alphaG.background(255);         //이것도 음파확인용 코드, 실행시 주석처리 필요
     alphaG.stroke(70);
     
     //Waveform 그리는 코드
