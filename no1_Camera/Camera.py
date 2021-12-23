@@ -12,7 +12,7 @@ def centroid_histogram(clt):
     hist /= hist.sum()
     return hist
 
-#색상바 생성하는 함수
+# 색상바 생성하는 함수
 def plot_colors(hist, centroids):
     b_width = 610
     b_height = 528
@@ -30,7 +30,7 @@ def plot_colors(hist, centroids):
     # return the bar chart
     return bar
 
-#블러처리 함수
+# 블러처리 함수
 def blur():
     image1 = Image.open("../no3_Ticket/colorBar/" + str(count) + '_colorBar.png')     #바 사진 불러옴
 
