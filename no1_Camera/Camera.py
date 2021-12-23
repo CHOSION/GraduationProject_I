@@ -12,6 +12,24 @@ def centroid_histogram(clt):
     hist /= hist.sum()
     return hist
 
+#색상바를 만드는 함수
+def plot_colors(hist, centroids):
+    b_width = 610
+    b_height = 528
+    bar = np.zeros((b_height, b_width, 3), dtype="uint8")
+    startY = 0
+
+    # loop over the percentage of each cluster and the color of
+    # each cluster
+    for (percent, color) in zip(hist, centroids):
+        # plot the relative percentage of each cluster
+        endY = startY + (percent * b_height)
+        cv2.rectangle(bar, (0, int(startY)), (b_width, int(endY)),
+                      color.astype("uint8").tolist(), -1)
+        startY = endY
+    # return the bar chart
+    return bar
+
 # 카메라 세팅
 capture = cv2.VideoCapture(2)
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 2160)
